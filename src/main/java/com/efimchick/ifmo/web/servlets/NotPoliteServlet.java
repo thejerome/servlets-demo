@@ -1,4 +1,4 @@
-package com.efimchick.ifmo.demo.servlets;
+package com.efimchick.ifmo.web.servlets;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,13 +13,13 @@ import java.io.PrintWriter;
  */
 
 @WebServlet(
-    name = "NotPolite",
-    urlPatterns = {"/not_polite"}
+        name = "NotPolite",
+        urlPatterns = {"/not_polite"}
 )
 public class NotPoliteServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
-        throws ServletException, IOException {
+            throws ServletException, IOException {
 //        writer may be a bit more comfortale
 //        ServletOutputStream out = resp.getOutputStream();
         PrintWriter out = resp.getWriter();

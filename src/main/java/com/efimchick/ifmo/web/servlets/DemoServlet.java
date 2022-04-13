@@ -1,4 +1,4 @@
-package com.efimchick.ifmo.demo.servlets;
+package com.efimchick.ifmo.web.servlets;
 
 import javax.servlet.ServletException;
 import javax.servlet.ServletOutputStream;
@@ -13,15 +13,18 @@ import java.io.IOException;
  */
 
 @WebServlet(
-    name = "DemoServlet",
-    urlPatterns = {"/demo"}
+        name = "DemoServlet",
+        urlPatterns = {"/demo"}
 )
 public class DemoServlet extends HttpServlet {
 
+    @Override
+    public void init() throws ServletException {
+        System.out.println("Demo started!");
+    }
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp)
-        throws ServletException, IOException {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         ServletOutputStream out = resp.getOutputStream();
         out.write("Hello, world".getBytes());
         out.flush();

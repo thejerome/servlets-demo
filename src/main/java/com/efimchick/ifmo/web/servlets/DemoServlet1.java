@@ -1,4 +1,4 @@
-package com.efimchick.ifmo.demo.servlets;
+package com.efimchick.ifmo.web.servlets;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,14 +13,14 @@ import java.io.PrintWriter;
  */
 
 @WebServlet(
-    name = "DemoServlet1",
-    urlPatterns = {"/demo1"}
+        name = "DemoServlet1",
+        urlPatterns = {"/demo1"}
 )
 public class DemoServlet1 extends HttpServlet {
 
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
-        throws ServletException, IOException {
-//        writer may be a bit more comfortale
+            throws ServletException, IOException {
+//        writer may be a bit more comfortable
 //        ServletOutputStream out = resp.getOutputStream();
         PrintWriter out = resp.getWriter();
 

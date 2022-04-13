@@ -1,6 +1,5 @@
-package com.efimchick.ifmo.demo.servlets;
+package com.efimchick.ifmo.web.servlets;
 
-import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -15,29 +14,28 @@ import java.util.Map;
  */
 
 @WebServlet(
-    name = "DemoServlet2",
-    urlPatterns = {"/demo2"}
+        name = "DemoServlet2",
+        urlPatterns = {"/demo2"}
 )
 public class DemoServlet2 extends HttpServlet {
 
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp)
-        throws ServletException, IOException {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         PrintWriter out = resp.getWriter();
 
         out.print("<html>\n" +
-            "  <head>\n" +
-            "    <title>demo2</title>\n" +
-            "  </head>\n" +
-            "  <body>\n");
+                "  <head>\n" +
+                "    <title>demo2</title>\n" +
+                "  </head>\n" +
+                "  <body>\n");
 
         //All parameters
         final Map<String, String[]> parameterMap = req.getParameterMap();
         for (Map.Entry<String, String[]> parameterEntry : parameterMap.entrySet()) {
             out.println("<h3>" +
-                parameterEntry.getKey() +
-                ": " +
-                Arrays.deepToString(parameterEntry.getValue()) +
-                "</h3>");
+                    parameterEntry.getKey() +
+                    ": " +
+                    Arrays.deepToString(parameterEntry.getValue()) +
+                    "</h3>");
         }
 
 
@@ -46,7 +44,7 @@ public class DemoServlet2 extends HttpServlet {
         out.print("Hello, " + name);
 
         out.print("  </body>\n" +
-            "</html>");
+                "</html>");
         out.flush();
         out.close();
     }

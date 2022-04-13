@@ -1,8 +1,10 @@
-package com.efimchick.ifmo.demo.servlets;
+package com.efimchick.ifmo.web.servlets;
 
-import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.*;
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -11,20 +13,19 @@ import java.io.PrintWriter;
  */
 
 @WebServlet(
-    name = "DemoServlet5",
-    urlPatterns = {"/demo5"}
+        name = "DemoServlet5",
+        urlPatterns = {"/demo5"}
 )
 public class DemoServlet5 extends HttpServlet {
 
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp)
-        throws ServletException, IOException {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         PrintWriter out = resp.getWriter();
 
         out.print("<html>\n" +
-            "  <head>\n" +
-            "    <title>demo5</title>\n" +
-            "  </head>\n" +
-            "  <body>\n");
+                "  <head>\n" +
+                "    <title>demo5</title>\n" +
+                "  </head>\n" +
+                "  <body>\n");
 
         final Cookie[] cookies = req.getCookies();
         for (Cookie cookie : cookies) {
@@ -38,14 +39,14 @@ public class DemoServlet5 extends HttpServlet {
         }
 
         resp.addCookie(
-            new Cookie(
-                "cookie" + cookies.length,
-                Double.toString(Math.random()))
+                new Cookie(
+                        "cookie" + cookies.length,
+                        Double.toString(Math.random()))
         );
 
 
         out.print("  </body>\n" +
-            "</html>");
+                "</html>");
         out.flush();
         out.close();
     }
